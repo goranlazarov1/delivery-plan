@@ -8,45 +8,43 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg1:#fff;--bg2:#f5f5f4;--bg3:#eeede9;
-  --bgi:#e6f1fb;--bgs:#eaf3de;--bgw:#faeeda;--bgd:#fcebeb;
-  --t1:#1a1a18;--t2:#73726c;
-  --ti:#185fa5;--ts:#3b6d11;--tw:#854f0b;--td:#a32d2d;
-  --b1:rgba(0,0,0,0.35);--b2:rgba(0,0,0,0.22);--b3:rgba(0,0,0,0.12);
-  --rm:8px;--rl:12px;
-  --f:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --bg1:#fff;--bg2:#f5f4fe;--bg3:#eeedfc;
+  --bgi:#EEEDFE;--bgs:#E1F5EE;--bgw:#faeeda;--bgd:#fcebeb;
+  --t1:#1a1820;--t2:#534AB7;
+  --ti:#534AB7;--ts:#085041;--tw:#854f0b;--td:#a32d2d;
+  --b1:rgba(83,74,183,0.5);--b2:rgba(83,74,183,0.3);--b3:rgba(83,74,183,0.15);
+  --acc:#7F77DD;--acc2:#5DCAA5;--acc3:#EF9F27;--acc4:#E24B4A;
+  --rm:8px;--rl:12px;--f:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 }
 @media(prefers-color-scheme:dark){:root{
-  --bg1:#1e1e1c;--bg2:#2a2a28;--bg3:#222220;
-  --bgi:#0c2a45;--bgs:#162b07;--bgw:#2e1c04;--bgd:#2a0e0e;
-  --t1:#f0efe8;--t2:#a8a79f;
-  --ti:#85b7eb;--ts:#97c459;--tw:#fac775;--td:#f09595;
-  --b1:rgba(255,255,255,0.3);--b2:rgba(255,255,255,0.2);--b3:rgba(255,255,255,0.1);
+  --bg1:#1a1828;--bg2:#221f35;--bg3:#1a1728;
+  --bgi:#26215C;--bgs:#04342C;--bgw:#2e1c04;--bgd:#2a0e0e;
+  --t1:#e8e6f8;--t2:#AFA9EC;
+  --ti:#AFA9EC;--ts:#5DCAA5;--tw:#fac775;--td:#f09595;
+  --b1:rgba(175,169,236,0.5);--b2:rgba(175,169,236,0.3);--b3:rgba(175,169,236,0.12);
+  --acc:#AFA9EC;--acc2:#5DCAA5;--acc3:#EF9F27;--acc4:#E24B4A;
 }}
 body{font-family:var(--f);color:var(--t1);background:var(--bg3);min-height:100vh;padding:2rem 1rem}
-.app{max-width:900px;margin:0 auto}
+.app{max-width:960px;margin:0 auto}
 .nav{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap}
 .nav button{padding:6px 16px;border:0.5px solid var(--b2);border-radius:var(--rm);background:transparent;color:var(--t2);cursor:pointer;font-size:13px;font-family:var(--f)}
-.nav button.active{background:var(--bg2);color:var(--t1);border-color:var(--b1);font-weight:500}
+.nav button.active{background:var(--bgi);color:var(--ti);border-color:var(--b1);font-weight:500}
 .section{display:none}.section.active{display:block}
 .metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:1.5rem}
-.metric{background:var(--bg2);border-radius:var(--rm);padding:14px 16px}
+.metric{background:var(--bg2);border-radius:var(--rm);padding:14px 16px;border:0.5px solid var(--b3)}
 .metric .lbl{font-size:12px;color:var(--t2);margin-bottom:6px}
-.metric .val{font-size:22px;font-weight:500}
+.metric .val{font-size:22px;font-weight:500;color:var(--acc)}
 .metric .sub{font-size:12px;color:var(--t2);margin-top:2px}
 .card{background:var(--bg1);border:0.5px solid var(--b3);border-radius:var(--rl);padding:1rem 1.25rem;margin-bottom:1rem}
 .card h3{font-size:12px;font-weight:500;margin-bottom:1rem;color:var(--t2);text-transform:uppercase;letter-spacing:.04em}
 .badge{font-size:11px;padding:3px 10px;border-radius:var(--rm);font-weight:500;display:inline-block}
-.bp{background:var(--bgi);color:var(--ti)}
-.bw{background:var(--bgw);color:var(--tw)}
-.bg{background:var(--bgs);color:var(--ts)}
+.bp{background:var(--bgi);color:#3C3489}.bw{background:var(--bgw);color:#633806}.bg{background:var(--bgs);color:#085041}
 table{width:100%;border-collapse:collapse;font-size:13px}
 th{text-align:left;padding:8px 10px;border-bottom:0.5px solid var(--b3);font-weight:500;color:var(--t2);font-size:12px}
-td{padding:6px 10px;border-bottom:0.5px solid var(--b3);color:var(--t1);vertical-align:middle}
+td{padding:5px 8px;border-bottom:0.5px solid var(--b3);color:var(--t1);vertical-align:middle}
 tr:last-child td{border-bottom:none}
-.av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0}
-.av-se{background:#E6F1FB;color:#0C447C}
-.av-qa{background:#E1F5EE;color:#085041}
+.av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;flex-shrink:0}
+.av-se{background:#EEEDFE;color:#3C3489}.av-qa{background:#E1F5EE;color:#085041}
 .bar-wrap{background:var(--bg2);border-radius:99px;height:8px;overflow:hidden;flex:1}
 .bar-fill{height:100%;border-radius:99px;transition:width .3s}
 .prow{margin-bottom:12px}
@@ -54,32 +52,65 @@ tr:last-child td{border-bottom:none}
 .trow{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:0.5px solid var(--b3)}
 .trow:last-child{border-bottom:none}
 .tdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
-.dp{background:#EF9F27}.dl{background:#378ADD}
+.dp{background:#EF9F27}.dl{background:#7F77DD}
 .rl-dot{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:13px;font-weight:500}
-.rh{background:#FCEBEB;color:#A32D2D}.rm2{background:#FAEEDA;color:#633806}.rl2{background:#EAF3DE;color:#27500A}
+.rh{background:#FCEBEB;color:#A32D2D}.rm2{background:#FAEEDA;color:#633806}.rl2{background:#E1F5EE;color:#085041}
 .legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;font-size:12px;color:var(--t2)}
 .legend span{display:flex;align-items:center;gap:4px}
 .lsq{width:10px;height:10px;border-radius:2px}
-.editable-num{display:inline-block;width:52px;padding:4px 8px;border:0.5px solid transparent;border-radius:var(--rm);text-align:center;cursor:pointer;font-size:13px;font-family:var(--f);color:var(--t1);background:transparent;transition:all .15s}
-.editable-num:hover{border-color:var(--b2);background:var(--bg2)}
-.editable-num:focus{border-color:var(--ti);background:var(--bg1);outline:none;box-shadow:0 0 0 2px rgba(24,95,165,0.15)}
+
+/* Editable inputs */
+.en{padding:4px 6px;border:0.5px solid transparent;border-radius:var(--rm);font-size:13px;font-family:var(--f);color:var(--t1);background:transparent;transition:all .15s;width:100%}
+.en:hover{border-color:var(--b2);background:var(--bg2)}
+.en:focus{border-color:var(--acc);background:var(--bg1);outline:none;box-shadow:0 0 0 2px rgba(127,119,221,0.2)}
+.en-num{width:52px;text-align:center}
+.en-sel{cursor:pointer;padding:4px 6px;border:0.5px solid transparent;border-radius:var(--rm);font-size:13px;font-family:var(--f);color:var(--t1);background:transparent;appearance:none;-webkit-appearance:none}
+.en-sel:hover{border-color:var(--b2);background:var(--bg2)}
+.en-sel:focus{border-color:var(--acc);outline:none}
+
+/* Action buttons */
+.btn-icon{width:28px;height:28px;border-radius:var(--rm);border:0.5px solid var(--b2);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--t2);font-size:15px;flex-shrink:0;font-family:var(--f)}
+.btn-icon:hover{background:var(--bg2);color:var(--t1)}
+.btn-icon.del:hover{background:var(--bgd);color:var(--td);border-color:var(--td)}
+.btn-add{display:flex;align-items:center;gap:8px;padding:8px 14px;border:0.5px dashed var(--b2);border-radius:var(--rm);background:transparent;cursor:pointer;font-size:13px;font-family:var(--f);color:var(--t2);width:100%;margin-top:8px;transition:all .15s}
+.btn-add:hover{background:var(--bg2);color:var(--ti);border-color:var(--b1)}
+
+/* Toast */
 .toast{position:fixed;bottom:24px;right:24px;background:var(--bg1);border:0.5px solid var(--b2);border-radius:var(--rm);padding:10px 18px;font-size:13px;display:flex;align-items:center;gap:8px;opacity:0;transform:translateY(8px);transition:all .25s;z-index:100;color:var(--t1)}
 .toast.show{opacity:1;transform:translateY(0)}
-.toast i{color:var(--ts)}.toast.err i{color:var(--td)}
+.toast i{color:#5DCAA5}.toast.err i{color:var(--td)}
+
+/* Edit banner */
 .edit-banner{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--bgi);border-radius:var(--rm);margin-bottom:1rem;font-size:13px;color:var(--ti);flex-wrap:wrap;gap:8px}
-.edit-banner button{font-size:12px;padding:4px 12px;cursor:pointer;font-family:var(--f);color:var(--ti);border:0.5px solid var(--ti);border-radius:var(--rm);background:transparent}
+.edit-banner button{font-size:12px;padding:4px 12px;cursor:pointer;font-family:var(--f);color:var(--ti);border:0.5px solid var(--b1);border-radius:var(--rm);background:transparent}
 .sync-row{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--t2);margin-bottom:1rem}
-.sdot{width:8px;height:8px;border-radius:50%;background:#1D9E75;flex-shrink:0}
+.sdot{width:8px;height:8px;border-radius:50%;background:#5DCAA5;flex-shrink:0}
 .sdot.spin{background:#EF9F27;animation:pulse 1s infinite}
 .sdot.err{background:#E24B4A}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .sl{font-size:15px;font-weight:500}
+.hdr-bar{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:0.5px solid var(--b3)}
+
+/* Modal */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:200;align-items:center;justify-content:center}
+.modal-bg.open{display:flex}
+.modal{background:var(--bg1);border-radius:var(--rl);padding:1.5rem;width:100%;max-width:420px;border:0.5px solid var(--b2)}
+.modal h4{font-size:16px;font-weight:500;margin-bottom:1.25rem;color:var(--t1)}
+.form-row{margin-bottom:12px}
+.form-row label{display:block;font-size:12px;color:var(--t2);margin-bottom:4px}
+.form-row input,.form-row select{width:100%;padding:8px 10px;border:0.5px solid var(--b2);border-radius:var(--rm);font-size:13px;font-family:var(--f);background:var(--bg1);color:var(--t1)}
+.form-row input:focus,.form-row select:focus{border-color:var(--acc);outline:none;box-shadow:0 0 0 2px rgba(127,119,221,0.2)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:1.25rem}
+.btn-cancel{padding:7px 16px;border:0.5px solid var(--b2);border-radius:var(--rm);background:transparent;cursor:pointer;font-size:13px;font-family:var(--f);color:var(--t2)}
+.btn-save{padding:7px 16px;border:0.5px solid var(--b1);border-radius:var(--rm);background:var(--bgi);cursor:pointer;font-size:13px;font-family:var(--f);color:var(--ti);font-weight:500}
+.btn-save:hover{background:var(--acc);color:#fff;border-color:var(--acc)}
 </style>
 </head>
 <body>
 <div class="app">
-<div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:1.5rem">
+<div class="hdr-bar">
   <div>
     <div style="font-size:22px;font-weight:500">Dark Mode — Delivery Plan</div>
     <div style="font-size:13px;color:var(--t2);margin-top:4px">Project Manager: Goran Lazarov &nbsp;·&nbsp; 3 Sprints</div>
@@ -99,59 +130,74 @@ tr:last-child td{border-bottom:none}
   <div class="metric-grid">
     <div class="metric"><div class="lbl">Total story points</div><div class="val">76</div><div class="sub">across 3 sprints</div></div>
     <div class="metric"><div class="lbl">Total capacity</div><div class="val" id="ov-cap">—</div><div class="sub">SE + QA days</div></div>
-    <div class="metric"><div class="lbl">Team size</div><div class="val">10</div><div class="sub">SE, QA, UX</div></div>
+    <div class="metric"><div class="lbl">Team size</div><div class="val" id="ov-size">—</div><div class="sub">members</div></div>
     <div class="metric"><div class="lbl">Days off</div><div class="val" id="ov-off">—</div><div class="sub">across all sprints</div></div>
     <div class="metric"><div class="lbl">Active risks</div><div class="val">7</div><div class="sub">2 high priority</div></div>
   </div>
   <div class="card">
     <h3>Sprint summary</h3>
     <div class="prow"><div class="plabel"><span>Sprint 1 <span style="color:var(--t2);font-size:12px">Jan 6–17 · 22 pts</span></span><span style="font-size:13px">2 in progress</span></div><div style="display:flex;gap:8px;align-items:center"><div class="bar-wrap"><div class="bar-fill" style="width:25%;background:#EF9F27"></div></div><span style="font-size:12px;color:var(--t2);min-width:32px">25%</span></div></div>
-    <div class="prow"><div class="plabel"><span>Sprint 2 <span style="color:var(--t2);font-size:12px">Jan 20–31 · 27 pts</span></span><span style="font-size:13px">All planned</span></div><div style="display:flex;gap:8px;align-items:center"><div class="bar-wrap"><div class="bar-fill" style="width:0%;background:#378ADD"></div></div><span style="font-size:12px;color:var(--t2);min-width:32px">0%</span></div></div>
-    <div class="prow" style="margin-bottom:0"><div class="plabel"><span>Sprint 3 <span style="color:var(--t2);font-size:12px">Feb 3–14 · 27 pts</span></span><span style="font-size:13px">All planned</span></div><div style="display:flex;gap:8px;align-items:center"><div class="bar-wrap"><div class="bar-fill" style="width:0%;background:#378ADD"></div></div><span style="font-size:12px;color:var(--t2);min-width:32px">0%</span></div></div>
+    <div class="prow"><div class="plabel"><span>Sprint 2 <span style="color:var(--t2);font-size:12px">Jan 20–31 · 27 pts</span></span><span style="font-size:13px">All planned</span></div><div style="display:flex;gap:8px;align-items:center"><div class="bar-wrap"><div class="bar-fill" style="width:0%;background:#7F77DD"></div></div><span style="font-size:12px;color:var(--t2);min-width:32px">0%</span></div></div>
+    <div class="prow" style="margin-bottom:0"><div class="plabel"><span>Sprint 3 <span style="color:var(--t2);font-size:12px">Feb 3–14 · 27 pts</span></span><span style="font-size:13px">All planned</span></div><div style="display:flex;gap:8px;align-items:center"><div class="bar-wrap"><div class="bar-fill" style="width:0%;background:#7F77DD"></div></div><span style="font-size:12px;color:var(--t2);min-width:32px">0%</span></div></div>
   </div>
   <div class="card">
     <h3>Capacity vs planned story points</h3>
     <div style="position:relative;height:220px"><canvas id="capChart">Chart</canvas></div>
-    <div class="legend"><span><span class="lsq" style="background:#378ADD"></span>SE capacity</span><span><span class="lsq" style="background:#1D9E75"></span>QA capacity</span><span><span class="lsq" style="background:#EF9F27"></span>Planned SPs</span></div>
+    <div class="legend">
+      <span><span class="lsq" style="background:#7F77DD"></span>SE capacity</span>
+      <span><span class="lsq" style="background:#5DCAA5"></span>QA capacity</span>
+      <span><span class="lsq" style="background:#EF9F27"></span>Planned SPs</span>
+    </div>
   </div>
 </div>
 
 <!-- CAPACITY -->
 <div id="s-capacity" class="section">
   <div class="edit-banner">
-    <span><i class="ti ti-pencil" style="font-size:15px;margin-right:6px"></i>Click any number to edit. Changes sync to all team members instantly.</span>
-    <button onclick="resetCapacity()"><i class="ti ti-refresh" style="font-size:13px;margin-right:4px"></i>Reset to defaults</button>
+    <span><i class="ti ti-pencil" style="font-size:15px;margin-right:6px" aria-hidden="true"></i>Edit names, roles, allocation and days directly. Use + to add people, trash to remove.</span>
+    <button onclick="resetCapacity()"><i class="ti ti-refresh" style="font-size:13px;margin-right:4px" aria-hidden="true"></i>Reset to defaults</button>
   </div>
   <div class="sync-row"><div class="sdot" id="sdot"></div><span id="slbl">Connecting...</span></div>
   <div class="metric-grid" id="cap-metrics"></div>
   <div class="card">
-    <h3>Team members — days per sprint &amp; days off</h3>
+    <h3>Team members</h3>
     <div style="overflow-x:auto">
       <table>
         <thead><tr>
-          <th style="min-width:160px">Member</th><th>Role</th><th style="text-align:center">Alloc.</th>
-          <th style="text-align:center">S1 days</th><th style="text-align:center">S2 days</th><th style="text-align:center">S3 days</th>
-          <th style="text-align:center">Off S1</th><th style="text-align:center">Off S2</th><th style="text-align:center">Off S3</th>
+          <th style="min-width:170px">Name</th>
+          <th style="min-width:80px">Role</th>
+          <th style="min-width:90px;text-align:center">Type</th>
+          <th style="min-width:80px;text-align:center">Alloc. %</th>
+          <th style="text-align:center">S1 days</th>
+          <th style="text-align:center">S2 days</th>
+          <th style="text-align:center">S3 days</th>
+          <th style="text-align:center">Off S1</th>
+          <th style="text-align:center">Off S2</th>
+          <th style="text-align:center">Off S3</th>
           <th style="text-align:center">Util.</th>
+          <th></th>
         </tr></thead>
         <tbody id="cap-tbody"></tbody>
       </table>
     </div>
+    <button class="btn-add" onclick="openAddModal()">
+      <i class="ti ti-plus" style="font-size:15px" aria-hidden="true"></i> Add team member
+    </button>
   </div>
   <div class="card">
     <h3>Public holidays</h3>
     <table><thead><tr><th>Sprint</th><th>Days</th><th>Notes</th></tr></thead><tbody>
-      <tr><td>Sprint 1</td><td><input class="editable-num" type="number" min="0" max="10" id="ph-s1" value="3" style="width:50px" onchange="saveHolidays()"></td><td style="color:var(--t2);font-size:12px">1st Jan, 6th Jan, 7th Jan</td></tr>
-      <tr><td>Sprint 2</td><td><input class="editable-num" type="number" min="0" max="10" id="ph-s2" value="1" style="width:50px" onchange="saveHolidays()"></td><td style="color:var(--t2);font-size:12px">19th Jan</td></tr>
-      <tr><td>Sprint 3</td><td><input class="editable-num" type="number" min="0" max="10" id="ph-s3" value="0" style="width:50px" onchange="saveHolidays()"></td><td style="color:var(--t2);font-size:12px">—</td></tr>
+      <tr><td>Sprint 1</td><td><input class="en en-num" type="number" min="0" max="10" id="ph-s1" value="3" style="width:50px" onchange="saveHolidays()"></td><td style="color:var(--t2);font-size:12px">1st Jan, 6th Jan, 7th Jan</td></tr>
+      <tr><td>Sprint 2</td><td><input class="en en-num" type="number" min="0" max="10" id="ph-s2" value="1" style="width:50px" onchange="saveHolidays()"></td><td style="color:var(--t2);font-size:12px">19th Jan</td></tr>
+      <tr><td>Sprint 3</td><td><input class="en en-num" type="number" min="0" max="10" id="ph-s3" value="0" style="width:50px" onchange="saveHolidays()"></td><td style="color:var(--t2);font-size:12px">—</td></tr>
     </tbody></table>
   </div>
   <div class="card">
     <h3>Capacity utilisation per person</h3>
     <div style="position:relative;height:200px"><canvas id="utilChart">Chart</canvas></div>
     <div class="legend" style="margin-top:12px">
-      <span><span class="lsq" style="background:#1D9E75"></span>&lt;70%</span>
-      <span><span class="lsq" style="background:#378ADD"></span>70–90%</span>
+      <span><span class="lsq" style="background:#5DCAA5"></span>&lt;70%</span>
+      <span><span class="lsq" style="background:#7F77DD"></span>70–90%</span>
       <span><span class="lsq" style="background:#EF9F27"></span>90–100%</span>
       <span><span class="lsq" style="background:#E24B4A"></span>&gt;100% over</span>
     </div>
@@ -201,7 +247,7 @@ tr:last-child td{border-bottom:none}
   <div class="metric-grid">
     <div class="metric"><div class="lbl">High priority</div><div class="val" style="color:#A32D2D">2</div><div class="sub">score 10+</div></div>
     <div class="metric"><div class="lbl">Medium</div><div class="val" style="color:#633806">4</div><div class="sub">score 6-9</div></div>
-    <div class="metric"><div class="lbl">Low</div><div class="val" style="color:#27500A">1</div><div class="sub">score 1-5</div></div>
+    <div class="metric"><div class="lbl">Low</div><div class="val" style="color:#085041">1</div><div class="sub">score 1-5</div></div>
     <div class="metric"><div class="lbl">All monitoring</div><div class="val">7</div></div>
   </div>
   <div class="card">
@@ -240,139 +286,233 @@ tr:last-child td{border-bottom:none}
 </div>
 </div>
 
-<div class="toast" id="toast"><i class="ti ti-check" id="t-icon"></i><span id="t-msg">Saved</span></div>
+<!-- ADD / EDIT MODAL -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <h4 id="modal-title">Add team member</h4>
+    <div class="form-row">
+      <label>Full name</label>
+      <input type="text" id="m-name" placeholder="e.g. Ana Jovanovska">
+    </div>
+    <div class="form-grid">
+      <div class="form-row">
+        <label>Role / title</label>
+        <input type="text" id="m-role" placeholder="e.g. SE, QA, ASE">
+      </div>
+      <div class="form-row">
+        <label>Type</label>
+        <select id="m-type">
+          <option value="se">SE (developer)</option>
+          <option value="qa">QA (tester)</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <label>Allocation %</label>
+      <select id="m-alloc">
+        <option value="1.0">100%</option>
+        <option value="0.9" selected>90%</option>
+        <option value="0.8">80%</option>
+        <option value="0.7">70%</option>
+        <option value="0.6">60%</option>
+        <option value="0.5">50%</option>
+        <option value="0.4">40%</option>
+        <option value="0.3">30%</option>
+      </select>
+    </div>
+    <div class="form-grid">
+      <div class="form-row"><label>Sprint 1 days</label><input type="number" id="m-s1" min="0" max="15" value="10"></div>
+      <div class="form-row"><label>Sprint 2 days</label><input type="number" id="m-s2" min="0" max="15" value="10"></div>
+    </div>
+    <div class="form-grid">
+      <div class="form-row"><label>Sprint 3 days</label><input type="number" id="m-s3" min="0" max="15" value="10"></div>
+      <div class="form-row"><label>Days off (total)</label><input type="number" id="m-off" min="0" max="30" value="0"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-save" onclick="saveModal()">Save member</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"><i class="ti ti-check" id="t-icon" aria-hidden="true"></i><span id="t-msg">Saved</span></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-const SB_URL = 'https://mjifgwhhojppspwbelhb.supabase.co';
-const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1qaWZnd2hob2pwcHNwd2JlbGhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3MDA1NzMsImV4cCI6MjA5NjI3NjU3M30.f8eSJMAd6Xagxf6HOUKe5shwyDFI1Zj2eWR6PKPsRjM';
-const API = `${SB_URL}/rest/v1/capacity`;
-const HDR = { 'Content-Type':'application/json', 'apikey':SB_KEY, 'Authorization':`Bearer ${SB_KEY}` };
+const SB_URL='https://mjifgwhhojppspwbelhb.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1qaWZnd2hob2pwcHNwd2JlbGhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3MDA1NzMsImV4cCI6MjA5NjI3NjU3M30.f8eSJMAd6Xagxf6HOUKe5shwyDFI1Zj2eWR6PKPsRjM';
+const API=`${SB_URL}/rest/v1/capacity`;
+const HDR={'Content-Type':'application/json','apikey':SB_KEY,'Authorization':`Bearer ${SB_KEY}`};
 
-const DEFAULTS = [
-  {name:'Stefan Simonovski', role:'SSE', type:'se', alloc:0.9, s1:6,  s2:9,  s3:10, off1:1, off2:0, off3:0},
-  {name:'Bojan Vuchevski',   role:'SE',  type:'se', alloc:0.9, s1:7,  s2:9,  s3:9,  off1:0, off2:0, off3:1},
-  {name:'Zhanko Mojsovski',  role:'SE',  type:'se', alloc:0.9, s1:7,  s2:6,  s3:9,  off1:0, off2:3, off3:1},
-  {name:'Stefan Trajkov',    role:'SE',  type:'se', alloc:0.9, s1:7,  s2:9,  s3:10, off1:0, off2:0, off3:0},
-  {name:'Ivana Sedmakova',   role:'ASE', type:'se', alloc:0.8, s1:6,  s2:8,  s3:10, off1:1, off2:1, off3:0},
-  {name:'Izabela Ugrevska',  role:'ASE', type:'se', alloc:0.7, s1:7,  s2:9,  s3:10, off1:0, off2:0, off3:0},
-  {name:'Elena Stojanova',   role:'SQA', type:'qa', alloc:0.9, s1:7,  s2:9,  s3:9,  off1:0, off2:0, off3:1},
-  {name:'David Sazdovski',   role:'SQA', type:'qa', alloc:0.9, s1:7,  s2:8,  s3:10, off1:0, off2:1, off3:0},
-  {name:'Mario Zdravkovski', role:'QA',  type:'qa', alloc:0.9, s1:6,  s2:9,  s3:9,  off1:1, off2:0, off3:1},
-  {name:'Viktor Markovski',  role:'QA',  type:'qa', alloc:0.9, s1:6,  s2:9,  s3:10, off1:1, off2:0, off3:0},
+const DEFAULTS=[
+  {name:'Stefan Simonovski',role:'SSE',type:'se',alloc:0.9,s1:6,s2:9,s3:10,off1:1,off2:0,off3:0},
+  {name:'Bojan Vuchevski',role:'SE',type:'se',alloc:0.9,s1:7,s2:9,s3:9,off1:0,off2:0,off3:1},
+  {name:'Zhanko Mojsovski',role:'SE',type:'se',alloc:0.9,s1:7,s2:6,s3:9,off1:0,off2:3,off3:1},
+  {name:'Stefan Trajkov',role:'SE',type:'se',alloc:0.9,s1:7,s2:9,s3:10,off1:0,off2:0,off3:0},
+  {name:'Ivana Sedmakova',role:'ASE',type:'se',alloc:0.8,s1:6,s2:8,s3:10,off1:1,off2:1,off3:0},
+  {name:'Izabela Ugrevska',role:'ASE',type:'se',alloc:0.7,s1:7,s2:9,s3:10,off1:0,off2:0,off3:0},
+  {name:'Elena Stojanova',role:'SQA',type:'qa',alloc:0.9,s1:7,s2:9,s3:9,off1:0,off2:0,off3:1},
+  {name:'David Sazdovski',role:'SQA',type:'qa',alloc:0.9,s1:7,s2:8,s3:10,off1:0,off2:1,off3:0},
+  {name:'Mario Zdravkovski',role:'QA',type:'qa',alloc:0.9,s1:6,s2:9,s3:9,off1:1,off2:0,off3:1},
+  {name:'Viktor Markovski',role:'QA',type:'qa',alloc:0.9,s1:6,s2:9,s3:10,off1:1,off2:0,off3:0},
 ];
 
-let data = JSON.parse(JSON.stringify(DEFAULTS));
-let rowId = null, saveTimer = null;
+let data=JSON.parse(JSON.stringify(DEFAULTS)),rowId=null,saveTimer=null,editIdx=-1;
 
-function sync(status, label) {
-  const d = document.getElementById('sdot'), l = document.getElementById('slbl');
-  if (!d) return;
-  d.className = 'sdot' + (status==='spin'?' spin':status==='err'?' err':'');
-  if (l) l.textContent = label;
+function syncUI(s,l){
+  const d=document.getElementById('sdot'),lb=document.getElementById('slbl');
+  if(d)d.className='sdot'+(s==='spin'?' spin':s==='err'?' err':'');
+  if(lb)lb.textContent=l;
 }
-
-function toast(msg, err) {
-  const t = document.getElementById('toast'), i = document.getElementById('t-icon');
-  document.getElementById('t-msg').textContent = msg;
-  if (i) i.className = err ? 'ti ti-alert-circle' : 'ti ti-check';
-  t.className = 'toast' + (err?' err':'') + ' show';
-  clearTimeout(window._tt);
-  window._tt = setTimeout(() => t.classList.remove('show'), 2500);
+function toast(msg,err){
+  const t=document.getElementById('toast'),i=document.getElementById('t-icon');
+  document.getElementById('t-msg').textContent=msg;
+  if(i)i.className=err?'ti ti-alert-circle':'ti ti-check';
+  t.className='toast'+(err?' err':'')+' show';
+  clearTimeout(window._tt);window._tt=setTimeout(()=>t.classList.remove('show'),2500);
 }
-
-async function load() {
-  sync('spin', 'Connecting...');
-  try {
-    const r = await fetch(`${API}?select=*&limit=1`, { headers: HDR });
-    if (!r.ok) throw new Error(r.status);
-    const rows = await r.json();
-    if (rows.length > 0) {
-      rowId = rows[0].id;
-      if (rows[0].data && rows[0].data.length > 0) data = rows[0].data;
-      else await save(true);
-    }
-    sync('ok', 'Connected — changes sync live');
-  } catch(e) {
-    sync('err', 'Offline — saved locally');
-    const fb = localStorage.getItem('dp-fb');
-    if (fb) data = JSON.parse(fb);
+async function load(){
+  syncUI('spin','Connecting...');
+  try{
+    const r=await fetch(`${API}?select=*&limit=1`,{headers:HDR});
+    if(!r.ok)throw new Error(r.status);
+    const rows=await r.json();
+    if(rows.length>0){rowId=rows[0].id;if(rows[0].data&&rows[0].data.length>0)data=rows[0].data;else await saveToDB(true);}
+    syncUI('ok','Connected — changes sync live');
+  }catch(e){
+    syncUI('err','Offline — saved locally');
+    const fb=localStorage.getItem('dp-fb');if(fb)data=JSON.parse(fb);
   }
-  render(); updateOv();
+  render();updateOv();
+}
+async function saveToDB(silent){
+  syncUI('spin','Saving...');
+  localStorage.setItem('dp-fb',JSON.stringify(data));
+  try{
+    const body=JSON.stringify({data,updated_at:new Date().toISOString()});
+    const r=rowId
+      ?await fetch(`${API}?id=eq.${rowId}`,{method:'PATCH',headers:{...HDR,'Prefer':'return=minimal'},body})
+      :await fetch(API,{method:'POST',headers:{...HDR,'Prefer':'return=representation'},body:JSON.stringify({data})});
+    if(!r.ok)throw new Error(r.status);
+    if(!rowId){const rows=await r.json();if(rows[0])rowId=rows[0].id;}
+    syncUI('ok','Connected — changes sync live');
+    if(!silent)toast('Saved and synced');
+  }catch(e){syncUI('err','Saved locally');if(!silent)toast('Saved locally',true);}
+}
+function debounceSave(){clearTimeout(saveTimer);saveTimer=setTimeout(()=>saveToDB(false),700);}
+
+async function resetCapacity(){
+  if(!confirm('Reset all data to original values?'))return;
+  data=JSON.parse(JSON.stringify(DEFAULTS));
+  await saveToDB(false);render();updateOv();
 }
 
-async function save(silent) {
-  sync('spin', 'Saving...');
-  localStorage.setItem('dp-fb', JSON.stringify(data));
-  try {
-    const body = JSON.stringify({ data, updated_at: new Date().toISOString() });
-    const r = rowId
-      ? await fetch(`${API}?id=eq.${rowId}`, { method:'PATCH', headers:{...HDR,'Prefer':'return=minimal'}, body })
-      : await fetch(API, { method:'POST', headers:{...HDR,'Prefer':'return=representation'}, body: JSON.stringify({data}) });
-    if (!r.ok) throw new Error(r.status);
-    if (!rowId) { const rows = await r.json(); if (rows[0]) rowId = rows[0].id; }
-    sync('ok', 'Connected — changes sync live');
-    if (!silent) toast('Saved and synced');
-  } catch(e) {
-    sync('err', 'Saved locally (offline)');
-    if (!silent) toast('Saved locally', true);
-  }
-}
+function ini(n){return(n||'?').split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();}
+function uc(p){return p>100?'#E24B4A':p>=90?'#EF9F27':p>=70?'#7F77DD':'#5DCAA5';}
+function util(m){const t=m.s1+m.s2+m.s3,o=(m.off1||0)+(m.off2||0)+(m.off3||0);return t?Math.round(((t-o)/t)*100):0;}
 
-function debSave() { clearTimeout(saveTimer); saveTimer = setTimeout(() => save(false), 700); }
-
-async function resetCapacity() {
-  if (!confirm('Reset all data to original values?')) return;
-  data = JSON.parse(JSON.stringify(DEFAULTS));
-  await save(false); render(); updateOv();
-}
-
-function ini(n) { return n.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase(); }
-function uc(p) { return p>100?'#E24B4A':p>=90?'#EF9F27':p>=70?'#378ADD':'#1D9E75'; }
-function util(m) { const t=m.s1+m.s2+m.s3,o=m.off1+m.off2+m.off3; return t?Math.round(((t-o)/t)*100):0; }
-
-function render() {
-  const tb = document.getElementById('cap-tbody'); if (!tb) return;
-  tb.innerHTML = '';
-  data.forEach((m,i) => {
-    const u = util(m), tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td><div style="display:flex;align-items:center;gap:8px"><div class="av ${m.type==='qa'?'av-qa':'av-se'}">${ini(m.name)}</div><span style="font-weight:500;font-size:13px">${m.name}</span></div></td>
-      <td><span class="badge ${m.type==='qa'?'bg':'bp'}">${m.role}</span></td>
-      <td style="text-align:center;font-size:13px">${Math.round(m.alloc*100)}%</td>
-      <td style="text-align:center"><input class="editable-num" type="number" min="0" max="15" value="${m.s1}" data-i="${i}" data-f="s1" onchange="upd(this)"></td>
-      <td style="text-align:center"><input class="editable-num" type="number" min="0" max="15" value="${m.s2}" data-i="${i}" data-f="s2" onchange="upd(this)"></td>
-      <td style="text-align:center"><input class="editable-num" type="number" min="0" max="15" value="${m.s3}" data-i="${i}" data-f="s3" onchange="upd(this)"></td>
-      <td style="text-align:center"><input class="editable-num" type="number" min="0" max="10" value="${m.off1}" data-i="${i}" data-f="off1" onchange="upd(this)"></td>
-      <td style="text-align:center"><input class="editable-num" type="number" min="0" max="10" value="${m.off2}" data-i="${i}" data-f="off2" onchange="upd(this)"></td>
-      <td style="text-align:center"><input class="editable-num" type="number" min="0" max="10" value="${m.off3}" data-i="${i}" data-f="off3" onchange="upd(this)"></td>
-      <td><div style="display:flex;align-items:center;gap:6px"><div class="bar-wrap" style="min-width:56px"><div class="bar-fill" style="width:${Math.min(u,100)}%;background:${uc(u)}"></div></div><span style="font-size:12px;min-width:32px;color:${uc(u)};font-weight:500">${u}%</span></div></td>`;
+function render(){
+  const tb=document.getElementById('cap-tbody');if(!tb)return;
+  tb.innerHTML='';
+  data.forEach((m,i)=>{
+    const u=util(m),tr=document.createElement('tr');
+    tr.innerHTML=`
+      <td><div style="display:flex;align-items:center;gap:8px">
+        <div class="av ${m.type==='qa'?'av-qa':'av-se'}">${ini(m.name)}</div>
+        <input class="en" type="text" value="${m.name||''}" data-i="${i}" data-f="name" onchange="updField(this)" style="min-width:120px">
+      </div></td>
+      <td><input class="en" type="text" value="${m.role||''}" data-i="${i}" data-f="role" onchange="updField(this)" style="width:70px"></td>
+      <td style="text-align:center">
+        <select class="en-sel" data-i="${i}" data-f="type" onchange="updField(this)">
+          <option value="se" ${m.type==='se'?'selected':''}>SE</option>
+          <option value="qa" ${m.type==='qa'?'selected':''}>QA</option>
+        </select>
+      </td>
+      <td style="text-align:center">
+        <select class="en-sel" data-i="${i}" data-f="alloc" onchange="updField(this)">
+          ${[100,90,80,70,60,50,40,30].map(p=>`<option value="${p/100}" ${Math.round(m.alloc*100)===p?'selected':''}>${p}%</option>`).join('')}
+        </select>
+      </td>
+      <td style="text-align:center"><input class="en en-num" type="number" min="0" max="15" value="${m.s1}" data-i="${i}" data-f="s1" onchange="updField(this)"></td>
+      <td style="text-align:center"><input class="en en-num" type="number" min="0" max="15" value="${m.s2}" data-i="${i}" data-f="s2" onchange="updField(this)"></td>
+      <td style="text-align:center"><input class="en en-num" type="number" min="0" max="15" value="${m.s3}" data-i="${i}" data-f="s3" onchange="updField(this)"></td>
+      <td style="text-align:center"><input class="en en-num" type="number" min="0" max="10" value="${m.off1||0}" data-i="${i}" data-f="off1" onchange="updField(this)"></td>
+      <td style="text-align:center"><input class="en en-num" type="number" min="0" max="10" value="${m.off2||0}" data-i="${i}" data-f="off2" onchange="updField(this)"></td>
+      <td style="text-align:center"><input class="en en-num" type="number" min="0" max="10" value="${m.off3||0}" data-i="${i}" data-f="off3" onchange="updField(this)"></td>
+      <td><div style="display:flex;align-items:center;gap:6px">
+        <div class="bar-wrap" style="min-width:50px"><div class="bar-fill" style="width:${Math.min(u,100)}%;background:${uc(u)}"></div></div>
+        <span style="font-size:12px;min-width:30px;color:${uc(u)};font-weight:500">${u}%</span>
+      </div></td>
+      <td><button class="btn-icon del" onclick="deleteMember(${i})" aria-label="Remove ${m.name}"><i class="ti ti-trash" aria-hidden="true"></i></button></td>`;
     tb.appendChild(tr);
   });
-  renderCapMetrics(); renderUtil();
+  renderCapMetrics();renderUtil();
 }
 
-function upd(inp) {
-  const v = Math.max(0, parseInt(inp.value)||0);
-  inp.value = v;
-  data[inp.dataset.i][inp.dataset.f] = v;
-  render(); updateOv(); debSave();
+function updField(inp){
+  const i=parseInt(inp.dataset.i),f=inp.dataset.f;
+  let v=inp.value;
+  if(f==='alloc')v=parseFloat(v);
+  else if(['s1','s2','s3','off1','off2','off3'].includes(f))v=Math.max(0,parseInt(v)||0);
+  data[i][f]=v;
+  if(f!=='name'&&f!=='role')render();
+  updateOv();debounceSave();
 }
 
-function saveHolidays() {
-  localStorage.setItem('dp-ph', JSON.stringify({
+function deleteMember(i){
+  if(!confirm(`Remove ${data[i].name} from the team?`))return;
+  data.splice(i,1);
+  render();updateOv();saveToDB(false);
+}
+
+// Modal
+function openAddModal(){
+  editIdx=-1;
+  document.getElementById('modal-title').textContent='Add team member';
+  document.getElementById('m-name').value='';
+  document.getElementById('m-role').value='';
+  document.getElementById('m-type').value='se';
+  document.getElementById('m-alloc').value='0.9';
+  document.getElementById('m-s1').value=10;
+  document.getElementById('m-s2').value=10;
+  document.getElementById('m-s3').value=10;
+  document.getElementById('m-off').value=0;
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+function saveModal(){
+  const name=document.getElementById('m-name').value.trim();
+  if(!name){alert('Please enter a name.');return;}
+  const member={
+    name,
+    role:document.getElementById('m-role').value.trim()||'SE',
+    type:document.getElementById('m-type').value,
+    alloc:parseFloat(document.getElementById('m-alloc').value),
+    s1:parseInt(document.getElementById('m-s1').value)||0,
+    s2:parseInt(document.getElementById('m-s2').value)||0,
+    s3:parseInt(document.getElementById('m-s3').value)||0,
+    off1:Math.round((parseInt(document.getElementById('m-off').value)||0)/3),
+    off2:Math.round((parseInt(document.getElementById('m-off').value)||0)/3),
+    off3:parseInt(document.getElementById('m-off').value)-(2*Math.round((parseInt(document.getElementById('m-off').value)||0)/3)),
+  };
+  data.push(member);
+  closeModal();render();updateOv();saveToDB(false);
+  toast(`${name} added to the team`);
+}
+
+function saveHolidays(){
+  localStorage.setItem('dp-ph',JSON.stringify({
     s1:parseInt(document.getElementById('ph-s1').value)||0,
     s2:parseInt(document.getElementById('ph-s2').value)||0,
     s3:parseInt(document.getElementById('ph-s3').value)||0
-  }));
-  toast('Holidays saved');
+  }));toast('Holidays saved');
 }
 
-function renderCapMetrics() {
-  const se=data.filter(m=>m.type==='se'), qa=data.filter(m=>m.type==='qa');
-  const sc=s=>se.reduce((a,m)=>a+m['s'+s]*m.alloc,0), qc=s=>qa.reduce((a,m)=>a+m['s'+s]*m.alloc,0);
-  const off=data.reduce((a,m)=>a+m.off1+m.off2+m.off3,0);
-  const el=document.getElementById('cap-metrics'); if (!el) return;
+function renderCapMetrics(){
+  const se=data.filter(m=>m.type==='se'),qa=data.filter(m=>m.type==='qa');
+  const sc=s=>se.reduce((a,m)=>a+m['s'+s]*m.alloc,0),qc=s=>qa.reduce((a,m)=>a+m['s'+s]*m.alloc,0);
+  const off=data.reduce((a,m)=>a+(m.off1||0)+(m.off2||0)+(m.off3||0),0);
+  const el=document.getElementById('cap-metrics');if(!el)return;
   el.innerHTML=`
     <div class="metric"><div class="lbl">Sprint 1</div><div class="val">${(sc(1)+qc(1)).toFixed(1)}</div><div class="sub">SE:${sc(1).toFixed(1)} QA:${qc(1).toFixed(1)}</div></div>
     <div class="metric"><div class="lbl">Sprint 2</div><div class="val">${(sc(2)+qc(2)).toFixed(1)}</div><div class="sub">SE:${sc(2).toFixed(1)} QA:${qc(2).toFixed(1)}</div></div>
@@ -380,41 +520,41 @@ function renderCapMetrics() {
     <div class="metric"><div class="lbl">Total days off</div><div class="val">${off}</div><div class="sub">across all sprints</div></div>`;
 }
 
-function updateOv() {
+function updateOv(){
   const t=data.reduce((a,m)=>a+(m.s1+m.s2+m.s3)*m.alloc,0);
-  const o=data.reduce((a,m)=>a+m.off1+m.off2+m.off3,0);
-  const ce=document.getElementById('ov-cap'), oe=document.getElementById('ov-off');
-  if(ce) ce.textContent=t.toFixed(1); if(oe) oe.textContent=o;
+  const o=data.reduce((a,m)=>a+(m.off1||0)+(m.off2||0)+(m.off3||0),0);
+  const ce=document.getElementById('ov-cap'),oe=document.getElementById('ov-off'),se=document.getElementById('ov-size');
+  if(ce)ce.textContent=t.toFixed(1);if(oe)oe.textContent=o;if(se)se.textContent=data.length;
 }
 
 let uci=null;
-function renderUtil() {
-  const ctx=document.getElementById('utilChart'); if(!ctx) return;
+function renderUtil(){
+  const ctx=document.getElementById('utilChart');if(!ctx)return;
   if(uci){uci.destroy();uci=null;}
   const utils=data.map(m=>util(m));
-  uci=new Chart(ctx,{type:'bar',data:{labels:data.map(m=>m.name.split(' ')[0]),datasets:[{data:utils,backgroundColor:utils.map(u=>uc(u)),borderRadius:4}]},
+  uci=new Chart(ctx,{type:'bar',data:{labels:data.map(m=>(m.name||'?').split(' ')[0]),datasets:[{data:utils,backgroundColor:utils.map(u=>uc(u)),borderRadius:4}]},
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
-      scales:{x:{grid:{display:false},ticks:{font:{size:11}}},y:{beginAtZero:true,max:110,grid:{color:'rgba(128,128,128,0.1)'},ticks:{callback:v=>v+'%'}}}}});
+      scales:{x:{grid:{display:false},ticks:{font:{size:11}}},y:{beginAtZero:true,max:110,grid:{color:'rgba(127,119,221,0.1)'},ticks:{callback:v=>v+'%'}}}}});
 }
 
 let cci=null;
-function initCap() {
-  const ctx=document.getElementById('capChart'); if(!ctx||cci) return;
-  const se=data.filter(m=>m.type==='se'), qa=data.filter(m=>m.type==='qa');
+function initCap(){
+  const ctx=document.getElementById('capChart');if(!ctx||cci)return;
+  const se=data.filter(m=>m.type==='se'),qa=data.filter(m=>m.type==='qa');
   const sc=s=>+se.reduce((a,m)=>a+m['s'+s]*m.alloc,0).toFixed(1);
   const qc=s=>+qa.reduce((a,m)=>a+m['s'+s]*m.alloc,0).toFixed(1);
   cci=new Chart(ctx,{type:'bar',data:{labels:['Sprint 1','Sprint 2','Sprint 3'],datasets:[
-    {label:'SE capacity',data:[sc(1),sc(2),sc(3)],backgroundColor:'#378ADD',borderRadius:4},
-    {label:'QA capacity',data:[qc(1),qc(2),qc(3)],backgroundColor:'#1D9E75',borderRadius:4},
+    {label:'SE capacity',data:[sc(1),sc(2),sc(3)],backgroundColor:'#7F77DD',borderRadius:4},
+    {label:'QA capacity',data:[qc(1),qc(2),qc(3)],backgroundColor:'#5DCAA5',borderRadius:4},
     {label:'Planned SPs',data:[22,27,27],backgroundColor:'#EF9F27',borderRadius:4}
   ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
-    scales:{x:{grid:{display:false}},y:{beginAtZero:true,grid:{color:'rgba(128,128,128,0.1)'}}}}});
+    scales:{x:{grid:{display:false}},y:{beginAtZero:true,grid:{color:'rgba(127,119,221,0.1)'}}}}});
 }
 
-function show(id,btn) {
+function show(id,btn){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
-  document.getElementById('s-'+id).classList.add('active'); btn.classList.add('active');
+  document.getElementById('s-'+id).classList.add('active');btn.classList.add('active');
   if(id==='overview'){updateOv();initCap();}
   if(id==='capacity'){
     render();
@@ -425,22 +565,21 @@ function show(id,btn) {
   }
 }
 
-// Poll every 30s for team updates
 setInterval(async()=>{
-  try {
+  try{
     const r=await fetch(`${API}?select=*&limit=1`,{headers:HDR});
-    if(!r.ok) return;
+    if(!r.ok)return;
     const rows=await r.json();
     if(rows.length>0&&rows[0].data&&rows[0].data.length>0){
-      data=rows[0].data; rowId=rows[0].id;
+      data=rows[0].data;rowId=rows[0].id;
       const cap=document.getElementById('s-capacity');
-      if(cap&&cap.classList.contains('active')) render();
+      if(cap&&cap.classList.contains('active'))render();
       updateOv();
     }
-  } catch(e){}
+  }catch(e){}
 },30000);
 
-load(); initCap();
+load();initCap();
 </script>
 </body>
 </html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Mode — Delivery Plan</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --color-bg-primary:#ffffff;--color-bg-secondary:#f5f5f4;--color-bg-tertiary:#eeede9;
+  --color-bg-info:#e6f1fb;--color-bg-success:#eaf3de;--color-bg-warning:#faeeda;--color-bg-danger:#fcebeb;
+  --color-text-primary:#1a1a18;--color-text-secondary:#73726c;
+  --color-text-info:#185fa5;--color-text-success:#3b6d11;--color-text-warning:#854f0b;--color-text-danger:#a32d2d;
+  --color-border-t:rgba(0,0,0,0.12);--color-border-s:rgba(0,0,0,0.22);--color-border-p:rgba(0,0,0,0.35);
+  --radius-md:8px;--radius-lg:12px;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --color-bg-primary:#1e1e1c;--color-bg-secondary:#2a2a28;--color-bg-tertiary:#222220;
+    --color-bg-info:#0c2a45;--color-bg-success:#162b07;--color-bg-warning:#2e1c04;--color-bg-danger:#2a0e0e;
+    --color-text-primary:#f0efe8;--color-text-secondary:#a8a79f;
+    --color-text-info:#85b7eb;--color-text-success:#97c459;--color-text-warning:#fac775;--color-text-danger:#f09595;
+    --color-border-t:rgba(255,255,255,0.1);--color-border-s:rgba(255,255,255,0.2);--color-border-p:rgba(255,255,255,0.3);
+  }
+}
+body{font-family:var(--font);color:var(--color-text-primary);background:var(--color-bg-tertiary);min-height:100vh;padding:2rem 1rem}
+.app{max-width:860px;margin:0 auto}
+.nav{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap}
+.nav button{padding:6px 16px;border:0.5px solid var(--color-border-s);border-radius:var(--radius-md);background:transparent;color:var(--color-text-secondary);cursor:pointer;font-size:13px;font-family:var(--font);transition:all .15s}
+.nav button:hover{background:var(--color-bg-secondary)}
+.nav button.active{background:var(--color-bg-secondary);color:var(--color-text-primary);border-color:var(--color-border-p);font-weight:500}
+.section{display:none}.section.active{display:block}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:1.5rem}
+.metric{background:var(--color-bg-secondary);border-radius:var(--radius-md);padding:14px 16px}
+.metric .lbl{font-size:12px;color:var(--color-text-secondary);margin-bottom:6px}
+.metric .val{font-size:22px;font-weight:500}
+.metric .sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+.card{background:var(--color-bg-primary);border:0.5px solid var(--color-border-t);border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1rem}
+.card h3{font-size:12px;font-weight:500;margin-bottom:1rem;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:.04em}
+.badge{font-size:11px;padding:3px 10px;border-radius:var(--radius-md);font-weight:500;display:inline-block}
+.bp{background:var(--color-bg-info);color:var(--color-text-info)}
+.bw{background:var(--color-bg-warning);color:var(--color-text-warning)}
+.bg{background:var(--color-bg-success);color:var(--color-text-success)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;padding:8px 10px;border-bottom:0.5px solid var(--color-border-t);font-weight:500;color:var(--color-text-secondary);font-size:12px}
+td{padding:8px 10px;border-bottom:0.5px solid var(--color-border-t);color:var(--color-text-primary)}
+tr:last-child td{border-bottom:none}
+.bar-wrap{background:var(--color-bg-secondary);border-radius:99px;height:8px;overflow:hidden;flex:1}
+.bar-fill{height:100%;border-radius:99px}
+.prow{margin-bottom:12px}
+.plabel{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px}
+.av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;flex-shrink:0}
+.av-se{background:#E6F1FB;color:#0C447C}
+.av-qa{background:#E1F5EE;color:#085041}
+.mrow{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:0.5px solid var(--color-border-t)}
+.mrow:last-child{border-bottom:none}
+.scols{display:flex;gap:8px}.scell{width:64px;text-align:center;font-size:13px}
+.rl{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:13px;font-weight:500}
+.rh{background:#FCEBEB;color:#A32D2D}.rm{background:#FAEEDA;color:#633806}.rl2{background:#EAF3DE;color:#27500A}
+.trow{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:0.5px solid var(--color-border-t)}
+.trow:last-child{border-bottom:none}
+.tdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.dp{background:#EF9F27}.dl{background:#378ADD}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;font-size:12px;color:var(--color-text-secondary)}
+.legend span{display:flex;align-items:center;gap:4px}
+.lsq{width:10px;height:10px;border-radius:2px}
+</style>
+</head>
+<body>
+<div class="app">
+<div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:1.5rem">
+  <div><div style="font-size:22px;font-weight:500">Dark Mode — Delivery Plan</div><div style="font-size:13px;color:var(--color-text-secondary);margin-top:4px">Project Manager: Goran Lazarov &nbsp;·&nbsp; 3 Sprints</div></div>
+  <span class="badge bw">In Progress</span>
+</div>
+<nav class="nav">
+  <button class="active" onclick="show('overview',this)">Overview</button>
+  <button onclick="show('capacity',this)">Team capacity</button>
+  <button onclick="show('tasks',this)">Sprint tasks</button>
+  <button onclick="show('risks',this)">Risk register</button>
+  <button onclick="show('comms',this)">Communication</button>
+</nav>
+
+<div id="s-overview" class="section active">
+  <div class="metric-grid">
+    <div class="metric"><div class="lbl">Total story points</div><div class="val">76</div><div class="sub">across 3 sprints</div></div>
+    <div class="metric"><div class="lbl">Total capacity</div><div class="val">220.9</div><div class="sub">SE + QA days</div></div>
+    <div class="metric"><div class="lbl">Team size</div><div class="val">10</div><div class="sub">SE, QA, UX</div></div>
+    <div class="metric"><div class="lbl">Days off</div><div class="val">13</div><div class="sub">+ 4 public holidays</div></div>
+    <div class="metric"><div class="lbl">Active risks</div><div class="val">7</div><div class="sub">2 high priority</div></div>
+  </div>
+  <div class="card">
+    <h3>Sprint summary</h3>
+    <div class="prow"><div class="plabel"><span>Sprint 1 <span style="color:var(--color-text-secondary);font-size:12px">Jan 6–17 · 22 pts</span></span><span style="font-size:13px">2 in progress</span></div><div style="display:flex;gap:8px;align-items:center"><div class="bar-wrap"><div class="bar-fill" style="width:25%;background:#EF9F27"></div></div><span style="font-size:12px;color:var(--color-text-secondary);min-width:32px">25%</span></div></div>
+    <div class="prow"><div class="plabel"><span>Sprint 2 <span style="color:var(--color-text-secondary);font-size:12px">Jan 20–31 · 27 pts</span></span><span style="font-size:13px">All planned</span></div><div style="display:flex;gap:8px;align-items:center"><div class="bar-wrap"><div class="bar-fill" style="width:0%;background:#378ADD"></div></div><span style="font-size:12px;color:var(--color-text-secondary);min-width:32px">0%</span></div></div>
+    <div class="prow" style="margin-bottom:0"><div class="plabel"><span>Sprint 3 <span style="color:var(--color-text-secondary);font-size:12px">Feb 3–14 · 27 pts</span></span><span style="font-size:13px">All planned</span></div><div style="display:flex;gap:8px;align-items:center"><div class="bar-wrap"><div class="bar-fill" style="width:0%;background:#378ADD"></div></div><span style="font-size:12px;color:var(--color-text-secondary);min-width:32px">0%</span></div></div>
+  </div>
+  <div class="card">
+    <h3>Capacity vs planned story points</h3>
+    <div style="position:relative;height:220px"><canvas id="capChart" role="img" aria-label="Capacity vs planned story points per sprint">Capacity chart</canvas></div>
+    <div class="legend"><span><span class="lsq" style="background:#378ADD"></span>SE capacity</span><span><span class="lsq" style="background:#1D9E75"></span>QA capacity</span><span><span class="lsq" style="background:#EF9F27"></span>Planned SPs</span></div>
+  </div>
+</div>
+
+<div id="s-capacity" class="section">
+  <div class="metric-grid">
+    <div class="metric"><div class="lbl">Sprint 1</div><div class="val">57.4</div><div class="sub">SE: 34 · QA: 23.4</div></div>
+    <div class="metric"><div class="lbl">Sprint 2</div><div class="val">80.1</div><div class="sub">SE: 48.6 · QA: 31.5</div></div>
+    <div class="metric"><div class="lbl">Sprint 3</div><div class="val">83.4</div><div class="sub">SE: 49.2 · QA: 34.2</div></div>
+    <div class="metric"><div class="lbl">Avg velocity</div><div class="val">28.3</div><div class="sub">SPs/sprint (10 prev)</div></div>
+  </div>
+  <div class="card">
+    <h3>Team members</h3>
+    <div style="display:flex;gap:8px;margin-bottom:1rem;font-size:12px;color:var(--color-text-secondary)"><span style="min-width:32px"></span><span style="flex:1">Member</span><div class="scols"><span class="scell">S1</span><span class="scell">S2</span><span class="scell">S3</span><span class="scell">Off</span></div></div>
+    <div class="mrow"><div class="av av-se">SS</div><div style="flex:1"><div style="font-size:14px;font-weight:500">Stefan Simonovski</div><div style="font-size:12px;color:var(--color-text-secondary)">SSE · 90%</div></div><div class="scols"><span class="scell">6</span><span class="scell">9</span><span class="scell">10</span><span class="scell">1</span></div></div>
+    <div class="mrow"><div class="av av-se">BV</div><div style="flex:1"><div style="font-size:14px;font-weight:500">Bojan Vuchevski</div><div style="font-size:12px;color:var(--color-text-secondary)">SE · 90%</div></div><div class="scols"><span class="scell">7</span><span class="scell">9</span><span class="scell">9</span><span class="scell">1</span></div></div>
+    <div class="mrow"><div class="av av-se">ZM</div><div style="flex:1"><div style="font-size:14px;font-weight:500">Zhanko Mojsovski</div><div style="font-size:12px;color:var(--color-text-secondary)">SE · 90%</div></div><div class="scols"><span class="scell">7</span><span class="scell">6</span><span class="scell">9</span><span class="scell">4</span></div></div>
+    <div class="mrow"><div class="av av-se">ST</div><div style="flex:1"><div style="font-size:14px;font-weight:500">Stefan Trajkov</div><div style="font-size:12px;color:var(--color-text-secondary)">SE · 90%</div></div><div class="scols"><span class="scell">7</span><span class="scell">9</span><span class="scell">10</span><span class="scell">0</span></div></div>
+    <div class="mrow"><div class="av av-se">IS</div><div style="flex:1"><div style="font-size:14px;font-weight:500">Ivana Sedmakova</div><div style="font-size:12px;color:var(--color-text-secondary)">ASE · 80%</div></div><div class="scols"><span class="scell">6</span><span class="scell">8</span><span class="scell">10</span><span class="scell">2</span></div></div>
+    <div class="mrow"><div class="av av-se">IU</div><div style="flex:1"><div style="font-size:14px;font-weight:500">Izabela Ugrevska</div><div style="font-size:12px;color:var(--color-text-secondary)">ASE · 70%</div></div><div class="scols"><span class="scell">7</span><span class="scell">9</span><span class="scell">10</span><span class="scell">0</span></div></div>
+    <div class="mrow"><div class="av av-qa">ES</div><div style="flex:1"><div style="font-size:14px;font-weight:500">Elena Stojanova</div><div style="font-size:12px;color:var(--color-text-secondary)">SQA · 90%</div></div><div class="scols"><span class="scell">7</span><span class="scell">9</span><span class="scell">9</span><span class="scell">1</span></div></div>
+    <div class="mrow"><div class="av av-qa">DS</div><div style="flex:1"><div style="font-size:14px;font-weight:500">David Sazdovski</div><div style="font-size:12px;color:var(--color-text-secondary)">SQA · 90%</div></div><div class="scols"><span class="scell">7</span><span class="scell">8</span><span class="scell">10</span><span class="scell">1</span></div></div>
+    <div class="mrow"><div class="av av-qa">MZ</div><div style="flex:1"><div style="font-size:14px;font-weight:500">Mario Zdravkovski</div><div style="font-size:12px;color:var(--color-text-secondary)">QA · 90%</div></div><div class="scols"><span class="scell">6</span><span class="scell">9</span><span class="scell">9</span><span class="scell">2</span></div></div>
+    <div class="mrow"><div class="av av-qa">VM</div><div style="flex:1"><div style="font-size:14px;font-weight:500">Viktor Markovski</div><div style="font-size:12px;color:var(--color-text-secondary)">QA · 90%</div></div><div class="scols"><span class="scell">6</span><span class="scell">9</span><span class="scell">10</span><span class="scell">1</span></div></div>
+  </div>
+  <div class="card">
+    <h3>Historical velocity (10 sprints)</h3>
+    <div style="position:relative;height:200px"><canvas id="velChart" role="img" aria-label="Historical velocity line chart">Velocity data</canvas></div>
+  </div>
+</div>
+
+<div id="s-tasks" class="section">
+  <div style="margin-bottom:1rem;display:flex;gap:8px"><span class="badge bw">● In Progress</span><span class="badge bp">● Planned</span></div>
+  <div class="card">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><span style="font-size:15px;font-weight:500">Sprint 1</span><span style="font-size:13px;color:var(--color-text-secondary)">Jan 6–17 · 22 pts</span></div>
+    <div class="trow"><div class="tdot dp"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Design token audit</div><div style="font-size:12px;color:var(--color-text-secondary)">UI/UX · 3 pts · In Progress · Review existing color usage</div></div></div>
+    <div class="trow"><div class="tdot dp"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">CSS / theming structure audit</div><div style="font-size:12px;color:var(--color-text-secondary)">Dev · 3 pts · In Progress · Identify risks</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Dark Mode palette definition</div><div style="font-size:12px;color:var(--color-text-secondary)">UI/UX · 3 pts · Planned · Light to Dark token mapping</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Accessibility requirements alignment</div><div style="font-size:12px;color:var(--color-text-secondary)">UI/UX + QA · 3 pts · Planned · WCAG contrast targets</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Theme toggle UX design</div><div style="font-size:12px;color:var(--color-text-secondary)">UI/UX · 3 pts · Planned · Placement and behavior</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Theming technical spike</div><div style="font-size:12px;color:var(--color-text-secondary)">Dev · 3 pts · Planned · CSS variables / provider</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Define theme test scenarios</div><div style="font-size:12px;color:var(--color-text-secondary)">QA · 2 pts · Planned · Functional coverage</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Identify regression risk areas</div><div style="font-size:12px;color:var(--color-text-secondary)">QA · 2 pts · Planned · Cross-browser scope</div></div></div>
+  </div>
+  <div class="card">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><span style="font-size:15px;font-weight:500">Sprint 2</span><span style="font-size:13px;color:var(--color-text-secondary)">Jan 20–31 · 27 pts</span></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Implement theme toggle</div><div style="font-size:12px;color:var(--color-text-secondary)">Dev · 3 pts · User-facing switch</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Update core components for Dark Mode</div><div style="font-size:12px;color:var(--color-text-secondary)">Dev · 8 pts · Buttons, inputs, nav</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Persist theme preference</div><div style="font-size:12px;color:var(--color-text-secondary)">Dev · 3 pts · Local storage</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Apply theme on app load</div><div style="font-size:12px;color:var(--color-text-secondary)">Dev · 2 pts · Initial render</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Functional testing - theme switching</div><div style="font-size:12px;color:var(--color-text-secondary)">QA · 3 pts · Basic flows</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Visual review - core components</div><div style="font-size:12px;color:var(--color-text-secondary)">UI/UX · 3 pts · Visual consistency</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Component-level testing</div><div style="font-size:12px;color:var(--color-text-secondary)">QA · 2 pts · Core components</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Accessibility testing (contrast and focus)</div><div style="font-size:12px;color:var(--color-text-secondary)">QA · 3 pts · Initial compliance</div></div></div>
+  </div>
+  <div class="card">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><span style="font-size:15px;font-weight:500">Sprint 3</span><span style="font-size:13px;color:var(--color-text-secondary)">Feb 3–14 · 27 pts</span></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Update remaining / edge components</div><div style="font-size:12px;color:var(--color-text-secondary)">Dev · 5 pts · Edge cases</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Fix UI and theme defects</div><div style="font-size:12px;color:var(--color-text-secondary)">Dev · 5 pts · Bug fixing</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Visual QA and final polish</div><div style="font-size:12px;color:var(--color-text-secondary)">UI/UX · 3 pts · Final checks</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Cross-browser regression testing</div><div style="font-size:12px;color:var(--color-text-secondary)">QA · 5 pts · All supported browsers</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Performance validation</div><div style="font-size:12px;color:var(--color-text-secondary)">Dev · 3 pts · No degradation</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Accessibility review and sign-off</div><div style="font-size:12px;color:var(--color-text-secondary)">UI/UX · 2 pts · Final approval</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Final accessibility validation</div><div style="font-size:12px;color:var(--color-text-secondary)">QA · 2 pts · WCAG confirmation</div></div></div>
+    <div class="trow"><div class="tdot dl"></div><div><div style="font-size:14px;font-weight:500;margin-bottom:2px">Release readiness testing</div><div style="font-size:12px;color:var(--color-text-secondary)">QA · 2 pts · Go / No-Go</div></div></div>
+  </div>
+</div>
+
+<div id="s-risks" class="section">
+  <div class="metric-grid">
+    <div class="metric"><div class="lbl">High priority</div><div class="val" style="color:#A32D2D">2</div><div class="sub">score 10+</div></div>
+    <div class="metric"><div class="lbl">Medium</div><div class="val" style="color:#633806">4</div><div class="sub">score 6–9</div></div>
+    <div class="metric"><div class="lbl">Low</div><div class="val" style="color:#27500A">1</div><div class="sub">score 1–5</div></div>
+    <div class="metric"><div class="lbl">All monitoring</div><div class="val">7</div></div>
+  </div>
+  <div class="card">
+    <h3>Risk register</h3>
+    <table>
+      <thead><tr><th>ID</th><th>Risk</th><th>Category</th><th>Owner</th><th style="text-align:center">Score</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>R-01</td><td>Limited theming experience</td><td>Capability</td><td>Delivery Mgr</td><td style="text-align:center"><span class="rl rm">9</span></td><td><span class="badge bw">Monitoring</span></td></tr>
+        <tr><td>R-02</td><td>Global CSS regression</td><td>Technical</td><td>Devs</td><td style="text-align:center"><span class="rl rh">12</span></td><td><span class="badge bw">Monitoring</span></td></tr>
+        <tr><td>R-03</td><td>Performance degradation</td><td>Technical</td><td>Devs</td><td style="text-align:center"><span class="rl rm">8</span></td><td><span class="badge bw">Monitoring</span></td></tr>
+        <tr><td>R-04</td><td>Design dependency delays</td><td>Delivery</td><td>Delivery Mgr</td><td style="text-align:center"><span class="rl rl2">6</span></td><td><span class="badge bw">Monitoring</span></td></tr>
+        <tr><td>R-05</td><td>Scope creep</td><td>Product</td><td>Product Owner</td><td style="text-align:center"><span class="rl rm">9</span></td><td><span class="badge bp">Identified</span></td></tr>
+        <tr><td>R-06</td><td>QA capacity constraints</td><td>Resource</td><td>Delivery Mgr</td><td style="text-align:center"><span class="rl rh">12</span></td><td><span class="badge bw">Monitoring</span></td></tr>
+        <tr><td>R-07</td><td>Unplanned sick leave</td><td>Resource</td><td>Delivery Mgr</td><td style="text-align:center"><span class="rl rl2">6</span></td><td><span class="badge bw">Monitoring</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="s-comms" class="section">
+  <div class="card">
+    <h3>Communication plan</h3>
+    <table>
+      <thead><tr><th>Type</th><th>Method</th><th>Frequency</th><th>Responsible</th><th>Deliverable</th></tr></thead>
+      <tbody>
+        <tr><td>Project Kickoff</td><td>Screen-to-Screen</td><td>Once</td><td>Delivery Mgr</td><td>Kickoff Notes</td></tr>
+        <tr><td>Daily Stand-up</td><td>In-Person / Screen</td><td>Daily</td><td>Delivery Mgr</td><td>Action Items</td></tr>
+        <tr><td>Sprint Planning</td><td>Meeting</td><td>Bi-Weekly</td><td>Delivery Mgr</td><td>Sprint Backlog</td></tr>
+        <tr><td>Sprint Review / Demo</td><td>Screen-to-Screen</td><td>Bi-Weekly</td><td>Delivery Mgr</td><td>Demo Summary</td></tr>
+        <tr><td>Sprint Retrospective</td><td>Meeting</td><td>Bi-Weekly</td><td>Delivery Mgr</td><td>Action List</td></tr>
+        <tr><td>Weekly Status Update</td><td>Email</td><td>Weekly</td><td>Delivery Mgr</td><td>Status Report</td></tr>
+        <tr><td>Risk Review</td><td>Meeting</td><td>Weekly</td><td>Delivery Mgr</td><td>Updated Risk Register</td></tr>
+        <tr><td>Design Review</td><td>Screen-to-Screen</td><td>As Needed</td><td>UI/UX Lead</td><td>Design Approval</td></tr>
+        <tr><td>Release Readiness</td><td>Meeting</td><td>Once</td><td>Delivery Mgr</td><td>Go/No-Go Decision</td></tr>
+        <tr><td>Issue Escalation</td><td>Email / Call</td><td>As Needed</td><td>Delivery Mgr</td><td>Decision Log</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+function show(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('s-'+id).classList.add('active');
+  btn.classList.add('active');
+  if(id==='overview')initCap();
+  if(id==='capacity')initVel();
+}
+let c1=false,c2=false;
+function initCap(){
+  if(c1)return;c1=true;
+  new Chart(document.getElementById('capChart'),{type:'bar',data:{labels:['Sprint 1','Sprint 2','Sprint 3'],datasets:[{label:'SE capacity',data:[34,48.6,49.2],backgroundColor:'#378ADD',borderRadius:4},{label:'QA capacity',data:[23.4,31.5,34.2],backgroundColor:'#1D9E75',borderRadius:4},{label:'Planned SPs',data:[22,27,27],backgroundColor:'#EF9F27',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{beginAtZero:true,grid:{color:'rgba(128,128,128,0.1)'}}}}});
+}
+function initVel(){
+  if(c2)return;c2=true;
+  new Chart(document.getElementById('velChart'),{type:'line',data:{labels:['S1','S2','S3','S4','S5','S6','S7','S8','S9','S10'],datasets:[{label:'Velocity',data:[28,33,25,27,26,27,30,31,29,27],borderColor:'#378ADD',backgroundColor:'rgba(55,138,221,0.08)',fill:true,tension:0.3,pointRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{min:20,grid:{color:'rgba(128,128,128,0.1)'}}}}});
+}
+initCap();
+</script>
+</body>
+</html>
